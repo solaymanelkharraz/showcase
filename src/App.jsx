@@ -1,6 +1,8 @@
-import React, { useState } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { motion, useScroll, useSpring, AnimatePresence } from "framer-motion";
+import { ArrowUp } from "lucide-react";
 import { translations } from "./data/content";
+import { scrollToSection } from "./utils/scroll";
 
 // Components
 import Header from "./components/Header";
@@ -15,6 +17,7 @@ import Footer from "./components/Footer";
 export default function App() {
   const [lang, setLang] = useState("fr");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   const sharedProps = { lang, translations };
 
@@ -24,6 +27,18 @@ export default function App() {
     damping: 30,
     restDelta: 0.001,
   });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 400) {
+        setShowScrollTop(true);
+      } else {
+        setShowScrollTop(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#020617] text-slate-50 selection:bg-blue-500/30">
@@ -55,6 +70,23 @@ export default function App() {
       </main>
 
       <Footer {...sharedProps} />
+
+      {/* Floating Scroll to Top */}
+      <AnimatePresence>
+        {showScrollTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => scrollToSection("top")}
+            className="fixed bottom-6 right-6 z-50 flex h-11 w-11 items-center justify-center rounded-xl border border-white/10 bg-slate-900/80 text-slate-300 shadow-xl backdrop-blur-md transition-all hover:bg-blue-600 hover:text-white hover:border-blue-500 hover:-translate-y-0.5 cursor-pointer"
+            aria-label="Scroll to top"
+          >
+            <ArrowUp className="h-5 w-5" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

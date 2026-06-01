@@ -29,6 +29,7 @@ export const translations = {
       "SmartInvoice Pro aide les freelances et les petites entreprises à créer, envoyer et suivre leurs factures avec une interface moderne, rapide et sécurisée.",
     btnDemo: "Voir la démo",
     btnDoc: "Rapport PFE",
+    btnGithub: "Code Source",
     liveLabel: "APERÇU EN DIRECT",
     featuresTitle: "Fonctionnalités clés",
     featuresDesc:
@@ -121,6 +122,7 @@ export const translations = {
       "SmartInvoice Pro helps freelancers and small businesses create, send, and track invoices with a modern, fast, and secure interface.",
     btnDemo: "Watch demo",
     btnDoc: "PFE Report",
+    btnGithub: "Source Code",
     liveLabel: "LIVE PREVIEW",
     featuresTitle: "Key features",
     featuresDesc:
@@ -219,3 +221,6 @@ export const team = [
     image: "/omar.jpeg",
   },
 ];
+
+export const githubRepoUrl = "https://github.com/amezianeomar/smartinvoice";
+

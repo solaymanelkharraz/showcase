@@ -2,7 +2,8 @@ import React, { useMemo } from "react";
 import { motion } from "framer-motion";
 import { Sparkles, PlayCircle, ArrowRight, Download } from "lucide-react";
 import { scrollToSection } from "../utils/scroll";
-import { sectionIds } from "../data/content";
+import { sectionIds, githubRepoUrl } from "../data/content";
+import { GithubBrand } from "./Icons";
 import DashboardMockup from "./DashboardMockup";
 
 export default function Hero({ lang, translations }) {
@@ -49,8 +50,18 @@ export default function Hero({ lang, translations }) {
           </button>
 
           <a
+            href={githubRepoUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-3 rounded-2xl border border-blue-500/20 bg-blue-500/10 px-8 py-4 font-bold text-blue-300 transition hover:-translate-y-0.5 hover:bg-blue-500/20"
+          >
+            <GithubBrand className="h-5 w-5" />
+            {t.btnGithub}
+          </a>
+
+          <a
             href={t.reportHref}
-            className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-8 py-4 font-bold transition hover:-translate-y-0.5 hover:bg-white/10"
+            className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-8 py-4 font-bold text-slate-300 transition hover:-translate-y-0.5 hover:bg-white/10"
           >
             <Download className="h-5 w-5" />
             {t.btnDoc}
@@ -58,14 +69,18 @@ export default function Hero({ lang, translations }) {
         </div>
 
         <div className="mt-10 grid grid-cols-3 gap-4">
-          {stats.map((item) => (
-            <div
+          {stats.map((item, index) => (
+            <motion.div
               key={item.label}
-              className="rounded-2xl border border-white/10 bg-white/[0.03] p-4"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+              className="group relative overflow-hidden rounded-2xl border border-white/5 bg-slate-900/30 p-4 backdrop-blur-md transition hover:-translate-y-1 hover:border-blue-500/30 hover:bg-slate-900/50"
             >
-              <p className="text-2xl font-black text-white">{item.value}</p>
-              <p className="mt-1 text-xs text-slate-500">{item.label}</p>
-            </div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-indigo-500 opacity-0 blur-lg transition group-hover:opacity-10" />
+              <p className="relative z-10 text-2xl font-black bg-gradient-to-r from-blue-400 to-indigo-200 bg-clip-text text-transparent">{item.value}</p>
+              <p className="relative z-10 mt-1 text-xs text-slate-500 font-medium group-hover:text-slate-400 transition">{item.label}</p>
+            </motion.div>
           ))}
         </div>
       </motion.div>

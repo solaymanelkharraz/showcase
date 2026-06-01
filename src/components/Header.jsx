@@ -1,6 +1,8 @@
 import React from "react";
 import { FileText, Globe, Menu, X } from "lucide-react";
 import { scrollToSection } from "../utils/scroll";
+import { GithubBrand } from "./Icons";
+import { githubRepoUrl } from "../data/content";
 
 export default function Header({
   lang,
@@ -58,6 +60,17 @@ export default function Header({
             <Globe className="h-4 w-4" />
             {lang.toUpperCase()}
           </button>
+
+          <a
+            href={githubRepoUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-2 rounded-xl border border-blue-500/20 bg-blue-500/10 px-3 py-2 text-xs font-bold text-blue-300 transition hover:bg-blue-500/20 hover:text-blue-100"
+            aria-label="GitHub Repository"
+          >
+            <GithubBrand className="h-4 w-4" />
+            <span>{t.btnGithub}</span>
+          </a>
         </nav>
 
         <button
@@ -92,6 +105,16 @@ export default function Header({
               <Globe className="h-4 w-4" />
               {lang === "fr" ? "Switch to English" : "Passer en français"}
             </button>
+
+            <a
+              href={githubRepoUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 rounded-xl border border-blue-500/20 bg-blue-500/10 px-3 py-3 text-sm font-bold text-blue-300"
+            >
+              <GithubBrand className="h-4 w-4" />
+              <span>{t.btnGithub}</span>
+            </a>
           </div>
         </div>
       )}
