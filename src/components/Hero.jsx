@@ -30,11 +30,11 @@ export default function Hero({ lang, translations }) {
           {t.badge}
         </div>
 
-        <h1 className="mb-8 text-5xl font-black leading-[1.04] tracking-tight md:text-7xl">
+        <h1 className="mb-8 text-5xl font-black leading-[1.04] tracking-tight text-slate-950 dark:text-white md:text-7xl">
           {t.heroTitle}
         </h1>
 
-        <p className="mx-auto mb-10 max-w-xl text-lg leading-8 text-slate-400 lg:mx-0">
+        <p className="mx-auto mb-10 max-w-xl text-lg leading-8 text-slate-600 dark:text-slate-400 lg:mx-0">
           {t.heroDesc}
         </p>
 
@@ -52,9 +52,9 @@ export default function Hero({ lang, translations }) {
           <button
             type="button"
             onClick={() => scrollToSection(sectionIds.demo)}
-            className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-8 py-4 font-bold text-slate-100 transition hover:-translate-y-0.5 hover:bg-white/10"
+            className="group flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-100 px-8 py-4 font-bold text-slate-800 transition hover:-translate-y-0.5 hover:bg-slate-200 dark:border-white/10 dark:bg-white/5 dark:text-slate-100 dark:hover:bg-white/10 cursor-pointer"
           >
-            <PlayCircle className="h-5 w-5 text-blue-400" />
+            <PlayCircle className="h-5 w-5 text-blue-500 dark:text-blue-400" />
             {t.btnDemo}
           </button>
 
@@ -80,7 +80,7 @@ export default function Hero({ lang, translations }) {
 
           <a
             href={t.reportHref}
-            className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-8 py-4 font-bold text-slate-300 transition hover:-translate-y-0.5 hover:bg-white/10"
+            className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-100 px-8 py-4 font-bold text-slate-800 transition hover:-translate-y-0.5 hover:bg-slate-200 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:hover:bg-white/10"
           >
             <Download className="h-5 w-5" />
             {t.btnDoc}
@@ -94,11 +94,11 @@ export default function Hero({ lang, translations }) {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-              className="group relative overflow-hidden rounded-2xl border border-white/5 bg-slate-900/30 p-4 backdrop-blur-md transition hover:-translate-y-1 hover:border-blue-500/30 hover:bg-slate-900/50"
+              className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white/50 p-4 backdrop-blur-md transition hover:-translate-y-1 hover:border-blue-500/30 hover:bg-white dark:border-white/5 dark:bg-slate-900/30 dark:hover:bg-slate-900/50"
             >
               <div className="absolute -inset-2 bg-gradient-to-r from-blue-600 to-indigo-500 opacity-0 blur-lg transition group-hover:opacity-10" />
-              <p className="relative z-10 text-2xl font-black bg-gradient-to-r from-blue-400 to-indigo-200 bg-clip-text text-transparent">{item.value}</p>
-              <p className="relative z-10 mt-1 text-xs text-slate-500 font-medium group-hover:text-slate-400 transition">{item.label}</p>
+              <p className="relative z-10 text-2xl font-black bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-200 bg-clip-text text-transparent">{item.value}</p>
+              <p className="relative z-10 mt-1 text-xs text-slate-500 font-medium group-hover:text-slate-700 dark:text-slate-500 dark:group-hover:text-slate-400 transition">{item.label}</p>
             </motion.div>
           ))}
         </div>

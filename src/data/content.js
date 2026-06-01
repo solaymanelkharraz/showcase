@@ -228,6 +228,6 @@ export const team = [
 
 export const githubRepoUrl = "https://github.com/amezianeomar/smartinvoice";
 export const livePreviewUrl = "https://smartinvoice-six.vercel.app";
-export const figmaUrl = "https://www.figma.com/design/lR1L4t6Nchp6O9Uu1a052m/SmartInvoice-Pro---SaaS-Billing-App?node-id=0-1"; // Dynamic Figma URL placeholder or actual
+export const figmaUrl = "https://www.figma.com/proto/nyyR1jQExSKTzLqQmYSmDE/SmartInvoice?node-id=14-751&t=z3YOMfvl4gJonlzv-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=14%3A751";
 
 

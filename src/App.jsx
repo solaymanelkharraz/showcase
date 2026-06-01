@@ -18,8 +18,22 @@ export default function App() {
   const [lang, setLang] = useState("fr");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [theme, setTheme] = useState(() => {
+    const saved = localStorage.getItem("theme");
+    return saved || "dark";
+  });
 
-  const sharedProps = { lang, translations };
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const root = window.document.documentElement;
+    if (theme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+  }, [theme]);
+
+  const sharedProps = { lang, translations, theme, setTheme };
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -41,16 +55,16 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#020617] text-slate-50 selection:bg-blue-500/30">
+    <div className="min-h-screen overflow-x-hidden bg-slate-50 text-slate-900 dark:bg-[#020617] dark:text-slate-50 selection:bg-blue-500/30 transition-colors duration-300">
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-blue-600 origin-left z-[100]"
         style={{ scaleX }}
       />
       {/* Visual Background Elements */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] h-[420px] w-[420px] rounded-full bg-blue-600/10 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] h-[420px] w-[420px] rounded-full bg-indigo-600/10 blur-[120px]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.08),transparent_35%)]" />
+        <div className="absolute top-[-10%] left-[-10%] h-[420px] w-[420px] rounded-full bg-blue-500/5 dark:bg-blue-600/10 blur-[120px] transition-colors duration-300" />
+        <div className="absolute bottom-[-10%] right-[-10%] h-[420px] w-[420px] rounded-full bg-indigo-500/5 dark:bg-indigo-600/10 blur-[120px] transition-colors duration-300" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.04),transparent_35%)] dark:bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.08),transparent_35%)] transition-colors duration-300" />
       </div>
 
       <Header

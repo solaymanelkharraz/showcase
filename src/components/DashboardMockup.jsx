@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { RotateCw, Lock, ArrowLeft, ArrowRight } from "lucide-react";
+import { livePreviewUrl } from "../data/content";
 
 export default function DashboardMockup() {
   return (
@@ -8,72 +9,46 @@ export default function DashboardMockup() {
       initial={{ opacity: 0, scale: 0.92 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.6, delay: 0.15 }}
-      className="relative"
+      className="relative w-full"
     >
-      <div className="absolute inset-0 rounded-full bg-blue-500/10 blur-3xl" />
+      <div className="absolute inset-0 rounded-full bg-blue-500/15 blur-3xl" />
 
-      <div className="relative rounded-[2rem] border border-white/10 bg-slate-950/40 p-4 shadow-2xl backdrop-blur-xl">
-        <div className="rounded-[1.5rem] border border-white/5 bg-slate-950 p-6">
-          <div className="mb-6 flex items-center justify-between">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">Dashboard</p>
-              <h2 className="text-2xl font-black bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">SI-PRO Analytics</h2>
-            </div>
-
-            <div className="flex items-center gap-2 rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-xs font-bold text-emerald-300">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              Live
-            </div>
+      <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-slate-950/60 p-3 shadow-2xl backdrop-blur-xl">
+        {/* Browser Top Bar */}
+        <div className="mb-3 flex items-center justify-between px-3">
+          {/* Controls */}
+          <div className="flex gap-2">
+            <span className="h-3 w-3 rounded-full bg-rose-500/80" />
+            <span className="h-3 w-3 rounded-full bg-amber-500/80" />
+            <span className="h-3 w-3 rounded-full bg-emerald-500/80" />
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-3">
-            {[
-              { label: "Revenue", value: "24,800 DH" },
-              { label: "Invoices", value: "128" },
-              { label: "Clients", value: "42" },
-            ].map((item) => (
-              <div
-                key={item.label}
-                className="group relative overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02] p-4 transition-all duration-300 hover:border-blue-500/20 hover:bg-white/[0.04]"
-              >
-                <p className="text-xs text-slate-500 transition group-hover:text-slate-400">{item.label}</p>
-                <p className="mt-2 text-lg font-black text-slate-100">{item.value}</p>
-              </div>
-            ))}
+          {/* Navigation Arrows */}
+          <div className="hidden gap-3 text-slate-500 sm:flex">
+            <ArrowLeft className="h-4 w-4 cursor-not-allowed opacity-50" />
+            <ArrowRight className="h-4 w-4 cursor-not-allowed opacity-50" />
           </div>
 
-          <div className="mt-6 flex h-40 items-end gap-2 rounded-2xl border border-blue-500/10 bg-gradient-to-t from-blue-950/20 to-transparent p-4">
-            {[40, 80, 50, 90, 60, 75, 55, 95, 70].map((height, index) => (
-              <motion.div
-                key={index}
-                initial={{ height: 0 }}
-                animate={{ height: `${height}%` }}
-                transition={{ duration: 0.8, delay: index * 0.04, ease: "easeOut" }}
-                className="flex-1 rounded-t-md bg-gradient-to-t from-blue-600/60 to-indigo-400/80 hover:from-blue-500 hover:to-indigo-300 transition-all duration-300"
-              />
-            ))}
+          {/* URL Bar */}
+          <div className="flex flex-1 max-w-md items-center justify-center gap-2 rounded-xl border border-white/5 bg-slate-900/50 px-4 py-1.5 text-xs text-slate-400 mx-4">
+            <Lock className="h-3.5 w-3.5 text-emerald-400/90" />
+            <span className="truncate tracking-wide text-slate-300">smartinvoice-six.vercel.app</span>
+            <RotateCw className="h-3 w-3 text-slate-500 hover:text-slate-300 cursor-pointer ml-auto" />
           </div>
 
-          <div className="mt-6 space-y-3">
-            {["Invoice #2026-001", "Invoice #2026-002", "Invoice #2026-003"].map(
-              (invoice) => (
-                <div
-                  key={invoice}
-                  className="flex items-center justify-between rounded-xl border border-white/5 bg-white/[0.03] p-3"
-                >
-                  <div className="flex items-center gap-3">
-                    <CheckCircle2 className="h-4 w-4 text-emerald-400" />
-                    <span className="text-sm text-slate-300">{invoice}</span>
-                  </div>
+          {/* Spacer for layout balancing */}
+          <div className="w-12 sm:w-16" />
+        </div>
 
-                  <span className="text-xs text-slate-500">PDF</span>
-                </div>
-              )
-            )}
-          </div>
+        {/* Live Website Frame */}
+        <div className="relative overflow-hidden rounded-[1.5rem] border border-white/5 bg-slate-950 shadow-inner h-[460px]">
+          <iframe
+            src={livePreviewUrl}
+            title="SmartInvoice Pro Live Preview"
+            className="h-full w-full border-0 bg-slate-900"
+            sandbox="allow-scripts allow-same-origin allow-forms"
+            loading="lazy"
+          />
         </div>
       </div>
     </motion.div>
