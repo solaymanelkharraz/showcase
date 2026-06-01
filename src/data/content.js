@@ -41,7 +41,7 @@ export const translations = {
       "Ce qui existe dans la V1 et ce qui peut venir après la soutenance.",
     teamTitle: "L'équipe du projet",
     footer: "SmartInvoice Pro · Projet de Fin d'Études · 2026",
-    reportHref: "/rapport-pfe.pdf",
+    reportHref: "/rapport-de-PFE-ISTA-NTIC.pdf",
     features: [
       {
         icon: ShieldCheck,
@@ -216,6 +216,6 @@ export const team = [
     github: "https://github.com/amezianeomar",
     linkedin: "https://linkedin.com/in/amezianeomar",
     portfolio: "https://portfolio-45d240.gitlab.io/",
-    image: "/omar.png",
+    image: "/omar.jpeg",
   },
 ];
