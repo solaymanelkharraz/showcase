@@ -1,9 +1,9 @@
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, PlayCircle, ArrowRight, Download } from "lucide-react";
+import { Sparkles, PlayCircle, ArrowRight, Download, ExternalLink } from "lucide-react";
 import { scrollToSection } from "../utils/scroll";
-import { sectionIds, githubRepoUrl } from "../data/content";
-import { GithubBrand } from "./Icons";
+import { sectionIds, githubRepoUrl, livePreviewUrl, figmaUrl } from "../data/content";
+import { GithubBrand, FigmaBrand } from "./Icons";
 import DashboardMockup from "./DashboardMockup";
 
 export default function Hero({ lang, translations }) {
@@ -39,14 +39,23 @@ export default function Hero({ lang, translations }) {
         </p>
 
         <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
+          <a
+            href={livePreviewUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="group flex items-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 font-bold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/35"
+          >
+            <ExternalLink className="h-5 w-5 transition-transform group-hover:scale-115" />
+            {t.btnLive}
+          </a>
+
           <button
             type="button"
             onClick={() => scrollToSection(sectionIds.demo)}
-            className="group flex items-center gap-3 rounded-2xl bg-blue-600 px-8 py-4 font-bold shadow-lg shadow-blue-600/20 transition hover:-translate-y-0.5 hover:bg-blue-500"
+            className="group flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-8 py-4 font-bold text-slate-100 transition hover:-translate-y-0.5 hover:bg-white/10"
           >
-            <PlayCircle className="h-5 w-5" />
+            <PlayCircle className="h-5 w-5 text-blue-400" />
             {t.btnDemo}
-            <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
           </button>
 
           <a
@@ -57,6 +66,16 @@ export default function Hero({ lang, translations }) {
           >
             <GithubBrand className="h-5 w-5" />
             {t.btnGithub}
+          </a>
+
+          <a
+            href={figmaUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-3 rounded-2xl border border-pink-500/20 bg-pink-500/10 px-8 py-4 font-bold text-pink-300 transition hover:-translate-y-0.5 hover:bg-pink-500/20"
+          >
+            <FigmaBrand className="h-5 w-5" />
+            {t.btnFigma}
           </a>
 
           <a

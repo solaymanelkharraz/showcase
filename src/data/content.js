@@ -30,6 +30,8 @@ export const translations = {
     btnDemo: "Voir la démo",
     btnDoc: "Rapport PFE",
     btnGithub: "Code Source",
+    btnLive: "Démo en direct",
+    btnFigma: "Maquette Figma",
     liveLabel: "APERÇU EN DIRECT",
     featuresTitle: "Fonctionnalités clés",
     featuresDesc:
@@ -123,6 +125,8 @@ export const translations = {
     btnDemo: "Watch demo",
     btnDoc: "PFE Report",
     btnGithub: "Source Code",
+    btnLive: "Live Preview",
+    btnFigma: "Figma Design",
     liveLabel: "LIVE PREVIEW",
     featuresTitle: "Key features",
     featuresDesc:
@@ -135,7 +139,7 @@ export const translations = {
       "What exists in V1 and what can come after the final presentation.",
     teamTitle: "Project team",
     footer: "SmartInvoice Pro · Final Project · 2026",
-    reportHref: "/pfe-report.pdf",
+    reportHref: "/rapport-de-PFE-ISTA-NTIC.pdf",
     features: [
       {
         icon: ShieldCheck,
@@ -223,4 +227,7 @@ export const team = [
 ];
 
 export const githubRepoUrl = "https://github.com/amezianeomar/smartinvoice";
+export const livePreviewUrl = "https://smartinvoice-six.vercel.app";
+export const figmaUrl = "https://www.figma.com/design/lR1L4t6Nchp6O9Uu1a052m/SmartInvoice-Pro---SaaS-Billing-App?node-id=0-1"; // Dynamic Figma URL placeholder or actual
+
 
