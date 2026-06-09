@@ -30,7 +30,7 @@ export default function Hero({ lang, translations }) {
           {t.badge}
         </div>
 
-        <h1 className="mb-8 text-5xl font-black leading-[1.04] tracking-tight text-slate-950 dark:text-white md:text-7xl">
+        <h1 className="mb-8 text-4xl sm:text-5xl font-black leading-[1.04] tracking-tight text-slate-950 dark:text-white md:text-7xl">
           {t.heroTitle}
         </h1>
 
@@ -38,62 +38,62 @@ export default function Hero({ lang, translations }) {
           {t.heroDesc}
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
+        <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:justify-center lg:justify-start sm:gap-4">
           <a
             href={livePreviewUrl}
             target="_blank"
             rel="noreferrer"
-            className="group flex items-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 font-bold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/35"
+            className="group flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3.5 sm:px-8 sm:py-4 font-bold text-white shadow-lg shadow-blue-600/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-blue-500/35 col-span-2 sm:col-span-1 w-full sm:w-auto"
           >
-            <ExternalLink className="h-5 w-5 transition-transform group-hover:scale-115" />
-            {t.btnLive}
+            <ExternalLink className="h-5 w-5 transition-transform group-hover:scale-110" />
+            <span className="truncate">{t.btnLive}</span>
           </a>
 
           <button
             type="button"
             onClick={() => scrollToSection(sectionIds.demo)}
-            className="group flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-100 px-8 py-4 font-bold text-slate-800 transition hover:-translate-y-0.5 hover:bg-slate-200 dark:border-white/10 dark:bg-white/5 dark:text-slate-100 dark:hover:bg-white/10 cursor-pointer"
+            className="group flex items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-slate-100 px-6 py-3.5 sm:px-8 sm:py-4 font-bold text-slate-800 transition hover:-translate-y-0.5 hover:bg-slate-200 dark:border-white/10 dark:bg-white/5 dark:text-slate-100 dark:hover:bg-white/10 cursor-pointer col-span-2 sm:col-span-1 w-full sm:w-auto"
           >
             <PlayCircle className="h-5 w-5 text-blue-500 dark:text-blue-400" />
-            {t.btnDemo}
+            <span className="truncate">{t.btnDemo}</span>
           </button>
 
           <a
             href={githubRepoUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-3 rounded-2xl border border-blue-500/20 bg-blue-500/10 px-8 py-4 font-bold text-blue-300 transition hover:-translate-y-0.5 hover:bg-blue-500/20"
+            className="flex items-center justify-center gap-3 rounded-2xl border border-blue-500/20 bg-blue-500/10 px-4 py-3 sm:px-8 sm:py-4 font-bold text-blue-400 dark:text-blue-300 transition hover:-translate-y-0.5 hover:bg-blue-500/20 w-full sm:w-auto"
           >
-            <GithubBrand className="h-5 w-5" />
-            {t.btnGithub}
+            <GithubBrand className="h-5 w-5 shrink-0 text-blue-500 dark:text-blue-400" />
+            <span className="truncate">{t.btnGithub}</span>
           </a>
 
           <a
             href={figmaUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-3 rounded-2xl border border-pink-500/20 bg-pink-500/10 px-8 py-4 font-bold text-pink-300 transition hover:-translate-y-0.5 hover:bg-pink-500/20"
+            className="flex items-center justify-center gap-3 rounded-2xl border border-pink-500/20 bg-pink-500/10 px-4 py-3 sm:px-8 sm:py-4 font-bold text-pink-400 dark:text-pink-300 transition hover:-translate-y-0.5 hover:bg-pink-500/20 w-full sm:w-auto"
           >
-            <FigmaBrand className="h-5 w-5" />
-            {t.btnFigma}
+            <FigmaBrand className="h-5 w-5 shrink-0 text-pink-500 dark:text-pink-400" />
+            <span className="truncate">{t.btnFigma}</span>
           </a>
 
           <a
             href={canvaUrl}
             target="_blank"
             rel="noreferrer"
-            className="flex items-center gap-3 rounded-2xl border border-purple-500/20 bg-purple-500/10 px-8 py-4 font-bold text-purple-400 transition hover:-translate-y-0.5 hover:bg-purple-500/20 dark:border-purple-500/30 dark:bg-purple-500/5 dark:text-purple-300 dark:hover:bg-purple-500/15"
+            className="flex items-center justify-center gap-3 rounded-2xl border border-purple-500/20 bg-purple-500/10 px-4 py-3 sm:px-8 sm:py-4 font-bold text-purple-500 dark:text-purple-400 transition hover:-translate-y-0.5 hover:bg-purple-500/20 dark:border-purple-500/30 dark:bg-purple-500/5 dark:text-purple-300 dark:hover:bg-purple-500/15 w-full sm:w-auto"
           >
-            <Presentation className="h-5 w-5 text-purple-500 dark:text-purple-400" />
-            {t.btnCanva}
+            <Presentation className="h-5 w-5 shrink-0 text-purple-500 dark:text-purple-400" />
+            <span className="truncate">{t.btnCanva}</span>
           </a>
 
           <a
             href={t.reportHref}
-            className="flex items-center gap-3 rounded-2xl border border-slate-200 bg-slate-100 px-8 py-4 font-bold text-slate-800 transition hover:-translate-y-0.5 hover:bg-slate-200 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:hover:bg-white/10"
+            className="flex items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-slate-100 px-4 py-3 sm:px-8 sm:py-4 font-bold text-slate-800 transition hover:-translate-y-0.5 hover:bg-slate-200 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:hover:bg-white/10 w-full sm:w-auto"
           >
-            <Download className="h-5 w-5" />
-            {t.btnDoc}
+            <Download className="h-5 w-5 shrink-0 text-slate-500 dark:text-slate-400" />
+            <span className="truncate">{t.btnDoc}</span>
           </a>
         </div>
 
