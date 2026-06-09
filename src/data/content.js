@@ -32,6 +32,7 @@ export const translations = {
     btnGithub: "Code Source",
     btnLive: "Démo en direct",
     btnFigma: "Maquette Figma",
+    btnCanva: "Présentation Canva",
     liveLabel: "APERÇU EN DIRECT",
     featuresTitle: "Fonctionnalités clés",
     featuresDesc:
@@ -127,6 +128,7 @@ export const translations = {
     btnGithub: "Source Code",
     btnLive: "Live Preview",
     btnFigma: "Figma Design",
+    btnCanva: "Canva Presentation",
     liveLabel: "LIVE PREVIEW",
     featuresTitle: "Key features",
     featuresDesc:
@@ -229,5 +231,6 @@ export const team = [
 export const githubRepoUrl = "https://github.com/amezianeomar/smartinvoice";
 export const livePreviewUrl = "https://smartinvoice-six.vercel.app";
 export const figmaUrl = "https://www.figma.com/proto/nyyR1jQExSKTzLqQmYSmDE/SmartInvoice?node-id=14-751&t=z3YOMfvl4gJonlzv-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=14%3A751";
+export const canvaUrl = "https://canva.link/dmkahbcitbkhi7j";
 
 

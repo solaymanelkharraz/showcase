@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, PlayCircle, ArrowRight, Download, ExternalLink } from "lucide-react";
+import { Sparkles, PlayCircle, ArrowRight, Download, ExternalLink, Presentation } from "lucide-react";
 import { scrollToSection } from "../utils/scroll";
-import { sectionIds, githubRepoUrl, livePreviewUrl, figmaUrl } from "../data/content";
+import { sectionIds, githubRepoUrl, livePreviewUrl, figmaUrl, canvaUrl } from "../data/content";
 import { GithubBrand, FigmaBrand } from "./Icons";
 import DashboardMockup from "./DashboardMockup";
 
@@ -76,6 +76,16 @@ export default function Hero({ lang, translations }) {
           >
             <FigmaBrand className="h-5 w-5" />
             {t.btnFigma}
+          </a>
+
+          <a
+            href={canvaUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="flex items-center gap-3 rounded-2xl border border-purple-500/20 bg-purple-500/10 px-8 py-4 font-bold text-purple-400 transition hover:-translate-y-0.5 hover:bg-purple-500/20 dark:border-purple-500/30 dark:bg-purple-500/5 dark:text-purple-300 dark:hover:bg-purple-500/15"
+          >
+            <Presentation className="h-5 w-5 text-purple-500 dark:text-purple-400" />
+            {t.btnCanva}
           </a>
 
           <a
